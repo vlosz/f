@@ -6,7 +6,23 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (0 == 0) {
-    	
+    if (pins.digitalReadPin(DigitalPin.P0) == 1) {
+        basic.showLeds(`
+            . . . . #
+            . . . # .
+            # . # . .
+            . # . . .
+            # . # . .
+            `)
+        pins.servoWritePin(AnalogPin.P0, 180)
+    } else {
+        basic.showLeds(`
+            . . # . .
+            . . # . .
+            . . # . .
+            . # # # .
+            . . # . .
+            `)
+        pins.servoWritePin(AnalogPin.P0, 90)
     }
 })
