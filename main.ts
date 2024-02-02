@@ -1,12 +1,12 @@
 basic.forever(function () {
-    if (input.temperature() < 20) {
+    if (input.temperature() > 20) {
         pins.digitalWritePin(DigitalPin.P0, 1)
     } else {
         pins.digitalWritePin(DigitalPin.P0, 0)
     }
 })
 basic.forever(function () {
-    if (pins.digitalReadPin(DigitalPin.P0) == 1) {
+    if (pins.digitalReadPin(DigitalPin.P1) == 1) {
         basic.showLeds(`
             . . . . #
             . . . # .
@@ -14,7 +14,7 @@ basic.forever(function () {
             . # . . .
             # . # . .
             `)
-        pins.servoWritePin(AnalogPin.P0, 180)
+        pins.servoWritePin(AnalogPin.P2, 180)
     } else {
         basic.showLeds(`
             . . # . .
@@ -23,6 +23,6 @@ basic.forever(function () {
             . # # # .
             . . # . .
             `)
-        pins.servoWritePin(AnalogPin.P0, 90)
+        pins.servoWritePin(AnalogPin.P2, 0)
     }
 })
